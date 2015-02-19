@@ -1,9 +1,9 @@
 ﻿var canvas;
 var stage: createjs.Stage;
 
-// Game Objects 
-var helloText: createjs.Text;
-var button: createjs.Bitmap;
+// Game 
+var  game = new createjs.Container();
+var background: createjs.Bitmap;
 
 function init() {
     canvas = document.getElementById("canvas");
@@ -16,54 +16,28 @@ function init() {
 }
 
 function gameLoop() {
-    helloText.rotation += 5;
-
-
     stage.update(); // Refreshes our stage
 }
 
 // Event handlers
 function buttonClicked() {
-    helloText.text = "Good Bye";
-    helloText.regX = helloText.getBounds().width * 0.5;
-    helloText.regY = helloText.getBounds().height * 0.5;
     
 }
 
-function buttonOut() {
-    button.alpha = 1.0;
+function createUI() {
+    background = new createjs.Bitmap("assets/images/SlotMachine.png");
+    game.addChild(background);
 }
-
-function buttonOver() {
-    button.alpha = 0.5;
-}
-
-
-
-
-
 // Our Game Kicks off in here
 function main() {
-    // Bitmap Button
-    button = new createjs.Bitmap("assets/images/blueButton.png");
-    stage.addChild(button);
-    button.x = stage.canvas.width * 0.5;
-    button.y = stage.canvas.height * 0.5;
-    button.regX = 110;
-    button.regY = 110;
+    // instantiate my game container
+    game = new createjs.Container();
+    game.x = 100;
+    game.y = 0;
 
-    button.addEventListener("click", buttonClicked);
-    button.addEventListener("mouseover", buttonOver);
-    button.addEventListener("mouseout", buttonOut);
-   
+    // Create Slotmachine User Interface
+    createUI();
 
-    // Label
-    helloText = new createjs.Text("Hello World!", "40px Consolas", "#000000");
-    stage.addChild(helloText);
-    helloText.x = stage.canvas.width * 0.5;
-    helloText.y = stage.canvas.height * 0.5;
-    helloText.regX = helloText.getBounds().width * 0.5;
-    helloText.regY = helloText.getBounds().height * 0.5;
 
-    
+    stage.addChild(game);
 }
