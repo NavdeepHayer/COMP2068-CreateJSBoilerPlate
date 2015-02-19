@@ -4,6 +4,13 @@ var stage: createjs.Stage;
 // Game 
 var  game = new createjs.Container();
 var background: createjs.Bitmap;
+var spinButton: createjs.Bitmap;
+var slotOne = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "Sevens", "blanks"];
+var slotTwo = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "Sevens", "blanks"];
+var slotThree = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "Sevens", "blanks"];
+var slotOneRandom;
+var sloTwoeRandom;
+var slotThreeRandom;
 
 function init() {
     canvas = document.getElementById("canvas");
@@ -20,13 +27,34 @@ function gameLoop() {
 }
 
 // Event handlers
-function buttonClicked() {
+function SpinBtn() {
+    slotOneRandom = Math.floor(Math.random() * slotOne.length);
+    console.log("Slot One: " + slotOne[slotOneRandom]);
+
+    sloTwoeRandom = Math.floor(Math.random() * slotTwo.length);
+    console.log("Slot Two: " + slotTwo[sloTwoeRandom]);
+
+    slotThreeRandom = Math.floor(Math.random() * slotThree.length);
+    console.log("Slot Three: " + slotThree[slotThreeRandom]);
+
+    checkSpin(slotOneRandom,sloTwoeRandom,slotThreeRandom);
     
+}
+function checkSpin(spotOne, spotTwo, SpotThree) {
+    if(
 }
 
 function createUI() {
     background = new createjs.Bitmap("assets/images/SlotMachine.png");
     game.addChild(background);
+
+    spinButton = new createjs.Bitmap("assets/images/SpinButton.png");
+    spinButton.x = 345;
+    spinButton.y = 410;
+    game.addChild(spinButton);
+
+
+    spinButton.addEventListener("click", SpinBtn);
 }
 // Our Game Kicks off in here
 function main() {

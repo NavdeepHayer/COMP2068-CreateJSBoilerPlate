@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="assets\images\blueButton.png" />
     <Content Include="assets\images\SlotMachine.png" />
+    <Content Include="assets\images\SpinButton.png" />
     <Content Include="css\game.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />
