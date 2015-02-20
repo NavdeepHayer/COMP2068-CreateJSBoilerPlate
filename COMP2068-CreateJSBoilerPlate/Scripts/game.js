@@ -10,7 +10,9 @@ var slotThree = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "S
 var slotOneRandom;
 var sloTwoeRandom;
 var slotThreeRandom;
-var ArrayMax = 8;
+var spins = 0;
+var win = 0;
+var jackpot = 0;
 function init() {
     canvas = document.getElementById("canvas");
     stage = new createjs.Stage(canvas);
@@ -34,6 +36,13 @@ function SpinBtn() {
     checkSpin(slotOne[slotOneRandom], slotTwo[sloTwoeRandom], slotThree[slotThreeRandom]);
 }
 function checkSpin(spotOne, spotTwo, SpotThree) {
+    console.log("");
+    spins++;
+    console.log("Number is spins " + spins);
+    console.log("Number is wins " + win);
+    console.log("Number of Jackpots " + jackpot);
+    console.log("jackPot Percentage " + (jackpot / spins) * 100 + " %");
+    console.log("Win percentage : " + (win / spins) * 100 + " %");
     var allSlots = [spotOne, spotTwo, SpotThree];
     var possibilities = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "Sevens", "blanks"];
     var grape = 0;
@@ -47,11 +56,6 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
     var total = [];
     var highest = 0;
     var choice = 0;
-    console.log(" ");
-    console.log(allSlots[0]);
-    console.log(allSlots[1]);
-    console.log(allSlots[2]);
-    console.log(" ");
     for (var i = 0; i < possibilities.length; i++) {
         for (var r = 0; r < allSlots.length; r++) {
             switch (possibilities[i]) {
@@ -99,15 +103,6 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
         }
     }
     total = [grape, bananans, oranges, cherries, bars, bells, seven, blanks];
-    console.log("Grapes : " + grape);
-    console.log("Bananans : " + bananans);
-    console.log("Oranges : " + oranges);
-    console.log("cherries : " + cherries);
-    console.log("bars : " + bars);
-    console.log("bells : " + bells);
-    console.log("seven : " + seven);
-    console.log("blanks : " + blanks);
-    console.log(" ");
     for (var t = 0; t < total.length; t++) {
         if (total[t] > highest) {
             highest = total[t];
@@ -115,12 +110,17 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
         }
     }
     console.log("");
-    console.log(highest);
+    if (highest == 1) {
+        console.log("No matches");
+    }
     if (highest == 2) {
         console.log("Win on " + possibilities[choice]);
+        win++;
     }
     if (highest == 3) {
         console.log("JackPot on " + possibilities[choice]);
+        win++;
+        jackpot++;
     }
     console.log("");
     highest = 0;
