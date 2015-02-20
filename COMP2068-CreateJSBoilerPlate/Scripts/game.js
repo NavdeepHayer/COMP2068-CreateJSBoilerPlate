@@ -44,6 +44,9 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
     var bells = 0;
     var seven = 0;
     var blanks = 0;
+    var total = [];
+    var highest = 0;
+    var choice = 0;
     console.log(" ");
     console.log(allSlots[0]);
     console.log(allSlots[1]);
@@ -95,14 +98,32 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
             }
         }
     }
-    console.log(grape);
-    console.log(bananans);
-    console.log(oranges);
-    console.log(cherries);
-    console.log(bars);
-    console.log(bells);
-    console.log(seven);
-    console.log(blanks);
+    total = [grape, bananans, oranges, cherries, bars, bells, seven, blanks];
+    console.log("Grapes : " + grape);
+    console.log("Bananans : " + bananans);
+    console.log("Oranges : " + oranges);
+    console.log("cherries : " + cherries);
+    console.log("bars : " + bars);
+    console.log("bells : " + bells);
+    console.log("seven : " + seven);
+    console.log("blanks : " + blanks);
+    console.log(" ");
+    for (var t = 0; t < total.length; t++) {
+        if (total[t] > highest) {
+            highest = total[t];
+            choice = t;
+        }
+    }
+    console.log("");
+    console.log(highest);
+    if (highest == 2) {
+        console.log("Win on " + possibilities[choice]);
+    }
+    if (highest == 3) {
+        console.log("JackPot on " + possibilities[choice]);
+    }
+    console.log("");
+    highest = 0;
 }
 function createUI() {
     background = new createjs.Bitmap("assets/images/SlotMachine.png");
