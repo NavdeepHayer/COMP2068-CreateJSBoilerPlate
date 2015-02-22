@@ -41,8 +41,8 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
     console.log("Number is spins " + spins);
     console.log("Number is wins " + win);
     console.log("Number of Jackpots " + jackpot);
-    console.log("jackPot Percentage " + (jackpot / spins) * 100 + " %");
-    console.log("Win percentage : " + (win / spins) * 100 + " %");
+    console.log("jackPot Percentage " + Math.floor(jackpot / spins * 100) + " %");
+    console.log("Win percentage : " + Math.floor(win / spins * 100) + " %");
     var allSlots = [spotOne, spotTwo, SpotThree];
     var possibilities = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "Sevens", "blanks"];
     var grape = 0;
@@ -123,7 +123,74 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
         jackpot++;
     }
     console.log("");
-    highest = 0;
+    console.log(choice);
+    console.log(highest);
+    switch (choice) {
+        case 0:
+            if (highest == 2) {
+                console.log("Won 0.1 on bet");
+            }
+            if (highest == 3) {
+                console.log("Won 1.1 on bet");
+            }
+            break;
+        case 1:
+            if (highest == 2) {
+                console.log("Won 0.2 on bet");
+            }
+            if (highest == 3) {
+                console.log("Won 1.2 on bet");
+            }
+            break;
+        case 2:
+            if (highest == 2) {
+                console.log("Won 0.3 on bet");
+            }
+            if (highest == 3) {
+                console.log("Won 1.3 on bet");
+            }
+            break;
+        case 3:
+            if (highest == 2) {
+                console.log("Won 0.4 on bet");
+            }
+            if (highest == 3) {
+                console.log("Won 1.4 on bet");
+            }
+            break;
+        case 4:
+            if (highest == 2) {
+                console.log("Won 0.5 on bet");
+            }
+            if (highest == 3) {
+                console.log("Won 1.5 on bet");
+            }
+            break;
+        case 5:
+            if (highest == 2) {
+                console.log("Won 0.6 on bet");
+            }
+            if (highest == 3) {
+                console.log("Won 1.6 on bet");
+            }
+            break;
+        case 6:
+            if (highest == 2) {
+                console.log("Won 0.7 on bet");
+            }
+            if (highest == 3) {
+                console.log("Won 1.7 on bet");
+            }
+            break;
+        case 7:
+            if (highest == 2) {
+                console.log("Won 0.8 on bet");
+            }
+            if (highest == 3) {
+                console.log("Won 1.8 on bet");
+            }
+            break;
+    }
 }
 function createUI() {
     background = new createjs.Bitmap("assets/images/SlotMachine.png");
