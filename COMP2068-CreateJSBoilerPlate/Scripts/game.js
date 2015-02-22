@@ -125,6 +125,10 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
     console.log("");
     console.log(choice);
     console.log(highest);
+    payOut(choice, highest);
+    console.log("");
+}
+function payOut(choice, highest) {
     switch (choice) {
         case 0:
             if (highest == 2) {

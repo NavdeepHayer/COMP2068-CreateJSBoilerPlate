@@ -141,14 +141,20 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
     console.log(choice);
     console.log(highest);
 
+    payOut(choice, highest);
+
+    
+    console.log("");
+}
+function payOut(choice, highest) {
     switch (choice) {
         case 0:
-                if (highest == 2) {
-                    console.log("Won 0.1 on bet");
-                }
-                if (highest == 3) {
-                    console.log("Won 1.1 on bet");
-                }
+            if (highest == 2) {
+                console.log("Won 0.1 on bet");
+            }
+            if (highest == 3) {
+                console.log("Won 1.1 on bet");
+            }
             break;
         case 1:
             if (highest == 2) {
