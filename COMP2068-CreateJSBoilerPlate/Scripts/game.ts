@@ -17,6 +17,8 @@ var slotThreeRandom;
 var spins = 0;
 var win = 0;
 var jackpot = 0;
+
+
 function init() {
     canvas = document.getElementById("canvas");
     stage = new createjs.Stage(canvas);
