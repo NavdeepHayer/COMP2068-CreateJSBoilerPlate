@@ -5,7 +5,12 @@ var stage: createjs.Stage;
 var  game = new createjs.Container();
 var background: createjs.Bitmap;
 var spinButton: createjs.Bitmap;
+var reelOne: createjs.Bitmap;
+var reelTwo: createjs.Bitmap;
+var reelThree: createjs.Bitmap;
+var reels: createjs.Bitmap[] = [];
 var slots = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "Sevens", "blanks"];
+var SlotImages = ["assets/images/Slot_Grapes.png", "assets/images/Slot_Bananas.png", "assets/images/Slot_Orange.png", "assets/images/Slot_Cherries.png", "assets/images/Slot_Bar.png", "assets/images/Slot_Bell.png", "assets/images/Slot_Seven.png", "assets/images/Slot_Blank.png"];
 var slotOneRandom;
 var sloTwoeRandom;
 var slotThreeRandom;
@@ -38,11 +43,8 @@ function SpinBtn() {
     slotThreeRandom = Math.floor(Math.random() * slots.length);
     console.log("Slot Three: " + slots[slotThreeRandom]);
 
-
-
     checkSpin(slots[slotOneRandom], slots[sloTwoeRandom], slots[slotThreeRandom]);
-
-    
+    showReels(slotOneRandom, sloTwoeRandom, slotThreeRandom);
 }
 function checkSpin(spotOne, spotTwo, SpotThree) {
     console.log("");
@@ -53,7 +55,6 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
     console.log("jackPot Percentage " + Math.floor(jackpot / spins * 100 )+ " %");
     console.log("Win percentage : " + Math.floor(win / spins * 100 )+ " %");
     var allSlots = [spotOne, spotTwo, SpotThree];
-    var possibilities = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "Sevens", "blanks"];
     var grape = 0;
     var bananans = 0;
     var oranges = 0;
@@ -67,46 +68,46 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
     var highest = 0;
     var choice = 0;
 
-    for (var i = 0; i < possibilities.length; i++) {
+    for (var i = 0; i < slots.length; i++) {
         for (var r = 0; r < allSlots.length; r++) {
-            switch (possibilities[i]) {
-                case possibilities[0]:
-                    if (possibilities[0] == allSlots[r]) {
+            switch (slots[i]) {
+                case slots[0]:
+                    if (slots[0] == allSlots[r]) {
                         grape++;
                     }
                     break;
-                case possibilities[1]:
-                    if (possibilities[1] == allSlots[r]) {
+                case slots[1]:
+                    if (slots[1] == allSlots[r]) {
                         bananans++;
                     }
                     break;
-                case possibilities[2]:
-                    if (possibilities[2] == allSlots[r]) {
+                case slots[2]:
+                    if (slots[2] == allSlots[r]) {
                         oranges++;
                     }
                     break;
-                case possibilities[3]:
-                    if (possibilities[3] == allSlots[r]) {
+                case slots[3]:
+                    if (slots[3] == allSlots[r]) {
                         cherries++;
                     }
                     break;
-                case possibilities[4]:
-                    if (possibilities[4] == allSlots[r]) {
+                case slots[4]:
+                    if (slots[4] == allSlots[r]) {
                         bars++;
                     }
                     break;
-                case possibilities[5]:
-                    if (possibilities[5] == allSlots[r]) {
+                case slots[5]:
+                    if (slots[5] == allSlots[r]) {
                         bells++;
                     }
                     break;
-                case possibilities[6]:
-                    if (possibilities[6] == allSlots[r]) {
+                case slots[6]:
+                    if (slots[6] == allSlots[r]) {
                         seven++;
                     }
                     break;
-                case possibilities[7]:
-                    if (possibilities[7] == allSlots[r]) {
+                case slots[7]:
+                    if (slots[7] == allSlots[r]) {
                         blanks++;
                     }
                     break;
@@ -126,11 +127,11 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
         console.log("No matches");
     }
     if (highest == 2) {
-        console.log("Win on " + possibilities[choice]);
+        console.log("Win on " + slots[choice]);
         win++;
     }
     if (highest == 3) {
-        console.log("JackPot on " + possibilities[choice]);
+        console.log("JackPot on " + slots[choice]);
         win++;
         jackpot++;
     }
@@ -211,6 +212,29 @@ function payOut(choice, highest) {
             }
             break;
     }
+}
+function showReels(spotOne, SpotTwo, SpotThree) {
+
+    game.removeChild(reelOne);
+    game.removeChild(reelTwo);
+    game.removeChild(reelThree);
+
+    reelOne = new createjs.Bitmap(SlotImages[spotOne]);
+    reelOne.x = 60;
+    reelOne.y = 220;
+    game.addChild(reelOne);
+
+    reelTwo = new createjs.Bitmap(SlotImages[SpotTwo]);
+    reelTwo.x = 150;
+    reelTwo.y = 220;
+    game.addChild(reelTwo);
+
+    reelThree = new createjs.Bitmap(SlotImages[SpotThree]);
+    reelThree.x = 200;
+    reelThree.y = 220;
+    game.addChild(reelThree);
+
+
 }
 
 function createUI() {
