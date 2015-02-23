@@ -5,9 +5,7 @@ var stage: createjs.Stage;
 var  game = new createjs.Container();
 var background: createjs.Bitmap;
 var spinButton: createjs.Bitmap;
-var slotOne = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "Sevens", "blanks"];
-var slotTwo = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "Sevens", "blanks"];
-var slotThree = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "Sevens", "blanks"];
+var slots = ["Grapes", "Bananas", "Oranges", "Cherries", "Bars", "Bells", "Sevens", "blanks"];
 var slotOneRandom;
 var sloTwoeRandom;
 var slotThreeRandom;
@@ -31,18 +29,18 @@ function gameLoop() {
 // Event handlers
 function SpinBtn() {
     //Getting Random Elements from each slot
-    slotOneRandom = Math.floor(Math.random() * slotOne.length);
-    console.log("Slot One: " + slotOne[slotOneRandom]);
+    slotOneRandom = Math.floor(Math.random() * slots.length);
+    console.log("Slot One: " + slots[slotOneRandom]);
 
-    sloTwoeRandom = Math.floor(Math.random() * slotTwo.length);
-    console.log("Slot Two: " + slotTwo[sloTwoeRandom]);
+    sloTwoeRandom = Math.floor(Math.random() * slots.length);
+    console.log("Slot Two: " + slots[sloTwoeRandom]);
 
-    slotThreeRandom = Math.floor(Math.random() * slotThree.length);
-    console.log("Slot Three: " + slotThree[slotThreeRandom]);
+    slotThreeRandom = Math.floor(Math.random() * slots.length);
+    console.log("Slot Three: " + slots[slotThreeRandom]);
 
 
 
-    checkSpin(slotOne[slotOneRandom], slotTwo[sloTwoeRandom], slotThree[slotThreeRandom]);
+    checkSpin(slots[slotOneRandom], slots[sloTwoeRandom], slots[slotThreeRandom]);
 
     
 }

@@ -69,6 +69,14 @@
   <ItemGroup>
     <Content Include="assets\images\blueButton.png" />
     <Content Include="assets\images\SlotMachine.png" />
+    <Content Include="assets\images\Slot_Bananas.png" />
+    <Content Include="assets\images\Slot_Bar.png" />
+    <Content Include="assets\images\Slot_Bell.png" />
+    <Content Include="assets\images\Slot_Blank.png" />
+    <Content Include="assets\images\SLot_Cherries.png" />
+    <Content Include="assets\images\Slot_Grapes.png" />
+    <Content Include="assets\images\Slot_Orange.png" />
+    <Content Include="assets\images\Slot_Seven.png" />
     <Content Include="assets\images\SpinButton.png" />
     <Content Include="css\game.css" />
     <Content Include="index.html" />
