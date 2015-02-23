@@ -112,23 +112,12 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
             choice = t;
         }
     }
-    console.log("");
-    if (highest == 1) {
-        console.log("No matches");
+    if (blanks >= 1) {
+        console.log("You win Nothing");
     }
-    if (highest == 2) {
-        console.log("Win on " + slots[choice]);
-        win++;
+    else {
+        payOut(choice, highest);
     }
-    if (highest == 3) {
-        console.log("JackPot on " + slots[choice]);
-        win++;
-        jackpot++;
-    }
-    console.log("");
-    console.log(choice);
-    console.log(highest);
-    payOut(choice, highest);
     console.log("");
 }
 function payOut(choice, highest) {
@@ -136,65 +125,83 @@ function payOut(choice, highest) {
         case 0:
             if (highest == 2) {
                 console.log("Won 0.1 on bet");
+                win++;
             }
             if (highest == 3) {
                 console.log("Won 1.1 on bet");
+                win++;
+                jackpot++;
             }
             break;
         case 1:
             if (highest == 2) {
                 console.log("Won 0.2 on bet");
+                win++;
             }
             if (highest == 3) {
                 console.log("Won 1.2 on bet");
+                win++;
+                jackpot++;
             }
             break;
         case 2:
             if (highest == 2) {
                 console.log("Won 0.3 on bet");
+                win++;
             }
             if (highest == 3) {
                 console.log("Won 1.3 on bet");
+                win++;
+                jackpot++;
             }
             break;
         case 3:
             if (highest == 2) {
                 console.log("Won 0.4 on bet");
+                win++;
             }
             if (highest == 3) {
                 console.log("Won 1.4 on bet");
+                win++;
+                jackpot++;
             }
             break;
         case 4:
             if (highest == 2) {
                 console.log("Won 0.5 on bet");
+                win++;
             }
             if (highest == 3) {
                 console.log("Won 1.5 on bet");
+                win++;
+                jackpot++;
             }
             break;
         case 5:
             if (highest == 2) {
                 console.log("Won 0.6 on bet");
+                win++;
             }
             if (highest == 3) {
                 console.log("Won 1.6 on bet");
+                win++;
+                jackpot++;
             }
             break;
         case 6:
             if (highest == 2) {
                 console.log("Won 0.7 on bet");
+                win++;
             }
             if (highest == 3) {
                 console.log("Won 1.7 on bet");
+                win++;
+                jackpot++;
             }
             break;
         case 7:
-            if (highest == 2) {
-                console.log("Won 0.8 on bet");
-            }
-            if (highest == 3) {
-                console.log("Won 1.8 on bet");
+            if (highest == 1) {
+                console.log("You win Nothing");
             }
             break;
     }
@@ -204,16 +211,16 @@ function showReels(spotOne, SpotTwo, SpotThree) {
     game.removeChild(reelTwo);
     game.removeChild(reelThree);
     reelOne = new createjs.Bitmap(SlotImages[spotOne]);
-    reelOne.x = 55;
-    reelOne.y = 220;
+    reelOne.x = 50;
+    reelOne.y = 230;
     game.addChild(reelOne);
     reelTwo = new createjs.Bitmap(SlotImages[SpotTwo]);
     reelTwo.x = 150;
-    reelTwo.y = 220;
+    reelTwo.y = 230;
     game.addChild(reelTwo);
     reelThree = new createjs.Bitmap(SlotImages[SpotThree]);
-    reelThree.x = 250;
-    reelThree.y = 220;
+    reelThree.x = 255;
+    reelThree.y = 230;
     game.addChild(reelThree);
 }
 function createUI() {
