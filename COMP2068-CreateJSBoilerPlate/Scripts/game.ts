@@ -220,7 +220,7 @@ function showReels(spotOne, SpotTwo, SpotThree) {
     game.removeChild(reelThree);
 
     reelOne = new createjs.Bitmap(SlotImages[spotOne]);
-    reelOne.x = 60;
+    reelOne.x = 55;
     reelOne.y = 220;
     game.addChild(reelOne);
 
@@ -230,7 +230,7 @@ function showReels(spotOne, SpotTwo, SpotThree) {
     game.addChild(reelTwo);
 
     reelThree = new createjs.Bitmap(SlotImages[SpotThree]);
-    reelThree.x = 200;
+    reelThree.x = 250;
     reelThree.y = 220;
     game.addChild(reelThree);
 
