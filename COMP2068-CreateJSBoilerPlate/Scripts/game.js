@@ -29,7 +29,7 @@ function gameLoop() {
 }
 // Event handlers
 function SpinBtn() {
-    //Getting Random Elements from each slot
+    //Getting Random Elements for each slot
     slotOneRandom = Math.floor(Math.random() * slots.length);
     console.log("Slot One: " + slots[slotOneRandom]);
     sloTwoeRandom = Math.floor(Math.random() * slots.length);
@@ -115,7 +115,10 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
     if (blanks >= 1) {
         console.log("You win Nothing");
     }
-    else {
+    if (highest == 1) {
+        console.log("You win Nothing");
+    }
+    if (blanks == 0) {
         payOut(choice, highest);
     }
     console.log("");
@@ -219,7 +222,7 @@ function showReels(spotOne, SpotTwo, SpotThree) {
     reelTwo.y = 230;
     game.addChild(reelTwo);
     reelThree = new createjs.Bitmap(SlotImages[SpotThree]);
-    reelThree.x = 255;
+    reelThree.x = 245;
     reelThree.y = 230;
     game.addChild(reelThree);
 }
