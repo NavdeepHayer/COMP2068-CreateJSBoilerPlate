@@ -4,6 +4,9 @@ var stage;
 var game = new createjs.Container();
 var background;
 var spinButton;
+var BetOne;
+var BetTen;
+var BetMax;
 var reelOne;
 var reelTwo;
 var reelThree;
@@ -16,6 +19,12 @@ var slotThreeRandom;
 var spins = 0;
 var win = 0;
 var jackpot = 0;
+var Credits = 1500;
+var betAmount = 0;
+var winnings = 0;
+var winningText;
+var betAmountText;
+var CreditText;
 function init() {
     canvas = document.getElementById("canvas");
     stage = new createjs.Stage(canvas);
@@ -38,6 +47,30 @@ function SpinBtn() {
     console.log("Slot Three: " + slots[slotThreeRandom]);
     checkSpin(slots[slotOneRandom], slots[sloTwoeRandom], slots[slotThreeRandom]);
     showReels(slotOneRandom, sloTwoeRandom, slotThreeRandom);
+}
+function BetOnce() {
+    if (betAmount < 50) {
+        Credits -= 1;
+        betAmount += 1;
+        CreditText.text = "Credits: " + Credits.toString();
+        betAmountText.text = "Bet Amount: " + betAmount.toString();
+    }
+}
+function BetTenfold() {
+    if (betAmount + 10 < 50) {
+        Credits -= 10;
+        betAmount += 10;
+        CreditText.text = "Credits: " + Credits.toString();
+        betAmountText.text = "Bet Amount: " + betAmount.toString();
+    }
+}
+function MaxOut() {
+    if (betAmount < 50) {
+        Credits -= 50;
+        betAmount += 50;
+        CreditText.text = "Credits: " + Credits.toString();
+        betAmountText.text = "Bet Amount: " + betAmount.toString();
+    }
 }
 function checkSpin(spotOne, spotTwo, SpotThree) {
     console.log("");
@@ -222,7 +255,7 @@ function showReels(spotOne, SpotTwo, SpotThree) {
     reelTwo.y = 230;
     game.addChild(reelTwo);
     reelThree = new createjs.Bitmap(SlotImages[SpotThree]);
-    reelThree.x = 245;
+    reelThree.x = 250;
     reelThree.y = 230;
     game.addChild(reelThree);
 }
@@ -233,6 +266,33 @@ function createUI() {
     spinButton.x = 345;
     spinButton.y = 410;
     game.addChild(spinButton);
+    CreditText = new createjs.Text("Credits: " + Credits.toString(), "Arial", "#000000");
+    CreditText.x = 30;
+    CreditText.y = 410;
+    game.addChild(CreditText);
+    betAmountText = new createjs.Text("Bet Amount: " + betAmount.toString(), "Arial", "#000000");
+    betAmountText.x = 30;
+    betAmountText.y = 430;
+    game.addChild(betAmountText);
+    winningText = new createjs.Text("Winnings: " + winnings.toString(), "Arial", "#000000");
+    winningText.x = 30;
+    winningText.y = 450;
+    game.addChild(winningText);
+    BetOne = new createjs.Bitmap("assets/images/BetOneButton.png");
+    BetOne.x = 290;
+    BetOne.y = 400;
+    game.addChild(BetOne);
+    BetTen = new createjs.Bitmap("assets/images/BetTenButton.png");
+    BetTen.x = 290;
+    BetTen.y = 440;
+    game.addChild(BetTen);
+    BetMax = new createjs.Bitmap("assets/images/BetMaxButton.png");
+    BetMax.x = 250;
+    BetMax.y = 420;
+    game.addChild(BetMax);
+    BetMax.addEventListener("click", MaxOut);
+    BetOne.addEventListener("click", BetOnce);
+    BetTen.addEventListener("click", BetTenfold);
     spinButton.addEventListener("click", SpinBtn);
 }
 // Our Game Kicks off in here
