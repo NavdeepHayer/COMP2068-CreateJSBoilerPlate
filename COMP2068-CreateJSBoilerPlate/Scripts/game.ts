@@ -20,7 +20,7 @@ var slotThreeRandom;
 var spins = 0;
 var win = 0;
 var jackpot = 0;
-var Credits = 1500;
+var Credits = 10;
 var betAmount = 0;
 var winnings = 0;
 var winningText;
@@ -58,7 +58,7 @@ function SpinBtn() {
         showReels(slotOneRandom, sloTwoeRandom, slotThreeRandom);
     }
     if(betAmount < 0) {
-        console.log("You didn't bet anything ");
+        console.log("You didn't bet anything or have enought money");
     }
 }
 function BetOnce() {
@@ -95,7 +95,7 @@ function ResetButton() {
     spins = 0;
     CreditText.text = "Credits: " + Credits.toString();
     betAmountText.text = "Bet Amount: " + betAmount.toString();
-    winningText = "Winnings: " + winnings.toString();
+    winningText.text = "Winnings: " + winnings.toString();
     game.removeChild(reelOne);
     game.removeChild(reelTwo);
     game.removeChild(reelThree);
@@ -203,7 +203,7 @@ function payOut(choice, highest) {
                 console.log(Credits);
                 winnings = betAmount * 1.5;
                 console.log(winnings);
-                winningText = "Winnings: " + winnings.toString();
+                winningText.text = "Winnings: " + winnings.toString();
                 betAmount = 0;
                 betAmountText.text = "Bet Amount: " + betAmount.toString();
                 Credits = winnings + Credits;
@@ -224,7 +224,7 @@ function payOut(choice, highest) {
                 console.log(Credits);
                 winnings = betAmount * 2.5;
                 console.log(winnings);
-                winningText = "Winnings: " + winnings.toString();
+                winningText.text  = "Winnings: " + winnings.toString();
                 betAmount = 0;
                 betAmountText.text = "Bet Amount: " + betAmount.toString();
                 Credits = winnings + Credits;
@@ -244,7 +244,7 @@ function payOut(choice, highest) {
                 console.log(Credits);
                 winnings = betAmount * 3.5;
                 console.log(winnings);
-                winningText = "Winnings: " + winnings.toString();
+                winningText.text  = "Winnings: " + winnings.toString();
                 betAmount = 0;
                 betAmountText.text = "Bet Amount: " + betAmount.toString();
                 Credits = winnings + Credits;
@@ -262,9 +262,9 @@ function payOut(choice, highest) {
             if (highest == 2) {
                 console.log("Won 0.4 on bet");
                 console.log(Credits);
-                winnings = betAmount * 4.5;
+                winnings = betAmount * 1.5;
                 console.log(winnings);
-                winningText = "Winnings: " + winnings.toString();
+                winningText.text  = "Winnings: " + winnings.toString();
                 betAmount = 0;
                 betAmountText.text = "Bet Amount: " + betAmount.toString();
                 Credits = winnings + Credits;
@@ -283,9 +283,9 @@ function payOut(choice, highest) {
             if (highest == 2) {
                 console.log("Won 0.5 on bet");
                 console.log(Credits);
-                winnings = betAmount * 5.5;
+                winnings = betAmount * 2.5;
                 console.log(winnings);
-                winningText = "Winnings: " + winnings.toString();
+                winningText.text  = "Winnings: " + winnings.toString();
                 betAmount = 0;
                 betAmountText.text = "Bet Amount: " + betAmount.toString();
                 Credits = winnings + Credits;
@@ -303,9 +303,9 @@ function payOut(choice, highest) {
             if (highest == 2) {
                 console.log("Won 0.6 on bet");
                 console.log(Credits);
-                winnings = betAmount * 6.5;
+                winnings = betAmount * 3.5;
                 console.log(winnings);
-                winningText = "Winnings: " + winnings.toString();
+                winningText.text  = "Winnings: " + winnings.toString();
                 betAmount = 0;
                 betAmountText.text = "Bet Amount: " + betAmount.toString();
                 Credits = winnings + Credits;
@@ -325,7 +325,7 @@ function payOut(choice, highest) {
                 console.log(Credits);
                 winnings = betAmount * 7.5;
                 console.log(winnings);
-                winningText = "Winnings: " + winnings.toString();
+                winningText.text  = "Winnings: " + winnings.toString();
                 betAmount = 0;
                 betAmountText.text = "Bet Amount: " + betAmount.toString();
                 Credits = winnings + Credits;
