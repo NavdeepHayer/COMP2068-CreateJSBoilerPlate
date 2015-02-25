@@ -44,17 +44,22 @@ function gameLoop() {
 // Event handlers
 function SpinBtn() {
     //Getting Random Elements for each slot
-    slotOneRandom = Math.floor(Math.random() * slots.length);
-    console.log("Slot One: " + slots[slotOneRandom]);
+    if (betAmount > 0) {
+        slotOneRandom = Math.floor(Math.random() * slots.length);
+        console.log("Slot One: " + slots[slotOneRandom]);
 
-    sloTwoeRandom = Math.floor(Math.random() * slots.length);
-    console.log("Slot Two: " + slots[sloTwoeRandom]);
+        sloTwoeRandom = Math.floor(Math.random() * slots.length);
+        console.log("Slot Two: " + slots[sloTwoeRandom]);
 
-    slotThreeRandom = Math.floor(Math.random() * slots.length);
-    console.log("Slot Three: " + slots[slotThreeRandom]);
+        slotThreeRandom = Math.floor(Math.random() * slots.length);
+        console.log("Slot Three: " + slots[slotThreeRandom]);
 
-    checkSpin(slots[slotOneRandom], slots[sloTwoeRandom], slots[slotThreeRandom]);
-    showReels(slotOneRandom, sloTwoeRandom, slotThreeRandom);
+        checkSpin(slots[slotOneRandom], slots[sloTwoeRandom], slots[slotThreeRandom]);
+        showReels(slotOneRandom, sloTwoeRandom, slotThreeRandom);
+    }
+    if(betAmount < 0) {
+        console.log("You didn't bet anything ");
+    }
 }
 function BetOnce() {
     if (betAmount < 50) {
@@ -177,8 +182,12 @@ function checkSpin(spotOne, spotTwo, SpotThree) {
 
     if (blanks >= 1) {
         console.log("You win Nothing")
+        betAmount = 0;
+        betAmountText.text = "Bet Amount: " + betAmount.toString();
     }
     if (highest == 1) {
+        betAmount = 0;
+        betAmountText.text = "Bet Amount: " + betAmount.toString();
         console.log("You win Nothing")
     }
     if(blanks == 0) {
@@ -191,10 +200,20 @@ function payOut(choice, highest) {
         case 0:
             if (highest == 2) {
                 console.log("Won 0.1 on bet");
+                console.log(Credits);
+                winnings = betAmount * 1.5;
+                console.log(winnings);
+                winningText = "Winnings: " + winnings.toString();
+                betAmount = 0;
+                betAmountText.text = "Bet Amount: " + betAmount.toString();
+                Credits = winnings + Credits;
+                CreditText.text = "Credits: " + Credits.toString();
+                console.log(Credits);
                 win++;
             }
             if (highest == 3) {
                 console.log("Won 1.1 on bet");
+
                 win++;
                 jackpot++;
             }
@@ -202,6 +221,15 @@ function payOut(choice, highest) {
         case 1:
             if (highest == 2) {
                 console.log("Won 0.2 on bet");
+                console.log(Credits);
+                winnings = betAmount * 2.5;
+                console.log(winnings);
+                winningText = "Winnings: " + winnings.toString();
+                betAmount = 0;
+                betAmountText.text = "Bet Amount: " + betAmount.toString();
+                Credits = winnings + Credits;
+                CreditText.text = "Credits: " + Credits.toString();
+                console.log(Credits);
                 win++;
             }
             if (highest == 3) {
@@ -213,6 +241,15 @@ function payOut(choice, highest) {
         case 2:
             if (highest == 2) {
                 console.log("Won 0.3 on bet");
+                console.log(Credits);
+                winnings = betAmount * 3.5;
+                console.log(winnings);
+                winningText = "Winnings: " + winnings.toString();
+                betAmount = 0;
+                betAmountText.text = "Bet Amount: " + betAmount.toString();
+                Credits = winnings + Credits;
+                CreditText.text = "Credits: " + Credits.toString();
+                console.log(Credits);
                 win++;
             }
             if (highest == 3) {
@@ -224,10 +261,20 @@ function payOut(choice, highest) {
         case 3:
             if (highest == 2) {
                 console.log("Won 0.4 on bet");
+                console.log(Credits);
+                winnings = betAmount * 4.5;
+                console.log(winnings);
+                winningText = "Winnings: " + winnings.toString();
+                betAmount = 0;
+                betAmountText.text = "Bet Amount: " + betAmount.toString();
+                Credits = winnings + Credits;
+                CreditText.text = "Credits: " + Credits.toString();
+                console.log(Credits);
                 win++;
             }
             if (highest == 3) {
                 console.log("Won 1.4 on bet");
+
                 win++;
                 jackpot++;
             }
@@ -235,6 +282,15 @@ function payOut(choice, highest) {
         case 4:
             if (highest == 2) {
                 console.log("Won 0.5 on bet");
+                console.log(Credits);
+                winnings = betAmount * 5.5;
+                console.log(winnings);
+                winningText = "Winnings: " + winnings.toString();
+                betAmount = 0;
+                betAmountText.text = "Bet Amount: " + betAmount.toString();
+                Credits = winnings + Credits;
+                CreditText.text = "Credits: " + Credits.toString();
+                console.log(Credits);
                 win++;
             }
             if (highest == 3) {
@@ -246,6 +302,15 @@ function payOut(choice, highest) {
         case 5:
             if (highest == 2) {
                 console.log("Won 0.6 on bet");
+                console.log(Credits);
+                winnings = betAmount * 6.5;
+                console.log(winnings);
+                winningText = "Winnings: " + winnings.toString();
+                betAmount = 0;
+                betAmountText.text = "Bet Amount: " + betAmount.toString();
+                Credits = winnings + Credits;
+                CreditText.text = "Credits: " + Credits.toString();
+                console.log(Credits);
                 win++;
             }
             if (highest == 3) {
@@ -257,9 +322,19 @@ function payOut(choice, highest) {
         case 6:
             if (highest == 2) {
                 console.log("Won 0.7 on bet");
+                console.log(Credits);
+                winnings = betAmount * 7.5;
+                console.log(winnings);
+                winningText = "Winnings: " + winnings.toString();
+                betAmount = 0;
+                betAmountText.text = "Bet Amount: " + betAmount.toString();
+                Credits = winnings + Credits;
+                CreditText.text = "Credits: " + Credits.toString();
+                console.log(Credits);
                 win++;
             }
             if (highest == 3) {
+
                 console.log("Won 1.7 on bet");
                 win++;
                 jackpot++;
