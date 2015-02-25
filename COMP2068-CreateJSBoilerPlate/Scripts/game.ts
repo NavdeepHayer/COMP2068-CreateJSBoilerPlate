@@ -73,12 +73,24 @@ function BetTenfold() {
     }
 }
 function MaxOut() {
-    if (betAmount + 50 < 50) {
+    if (betAmount + 50 <= 50) {
         Credits -= 50;
         betAmount += 50;
         CreditText.text = "Credits: " + Credits.toString();
         betAmountText.text = "Bet Amount: " + betAmount.toString();
+        winningText = "Winnings: " + winnings.toString();
     }
+
+}
+function ResetButton() {
+    Credits = 1500;
+    winnings = 0;
+    betAmount = 0;
+    win = 0;
+    jackpot = 0;
+    spins = 0;
+    CreditText.text = "Credits: " + Credits.toString();
+    betAmountText.text = "Bet Amount: " + betAmount.toString();
 
 }
 function checkSpin(spotOne, spotTwo, SpotThree) {
@@ -317,7 +329,10 @@ function createUI() {
     BetMax.y = 400;
     game.addChild(BetMax);
 
-    Reset = new createjs.Bitmap
+    Reset = new createjs.Bitmap("assets/images/ResetButton.png");
+    Reset.x = 250;
+    Reset.y = 440;
+    game.addChild(Reset);
 
 
 
@@ -327,6 +342,7 @@ function createUI() {
     BetOne.addEventListener("click", BetOnce);
     BetTen.addEventListener("click", BetTenfold);
     spinButton.addEventListener("click", SpinBtn);
+    Reset.addEventListener("click", ResetButton);
 }
 // Our Game Kicks off in here
 function main() {
