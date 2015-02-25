@@ -65,7 +65,7 @@ function BetTenfold() {
     }
 }
 function MaxOut() {
-    if (betAmount < 50) {
+    if (betAmount + 50 < 50) {
         Credits -= 50;
         betAmount += 50;
         CreditText.text = "Credits: " + Credits.toString();
@@ -266,15 +266,15 @@ function createUI() {
     spinButton.x = 345;
     spinButton.y = 410;
     game.addChild(spinButton);
-    CreditText = new createjs.Text("Credits: " + Credits.toString(), "Arial", "#000000");
+    CreditText = new createjs.Text("Credits: " + Credits.toString(), "Arial", "#FFFFFF");
     CreditText.x = 30;
     CreditText.y = 410;
     game.addChild(CreditText);
-    betAmountText = new createjs.Text("Bet Amount: " + betAmount.toString(), "Arial", "#000000");
+    betAmountText = new createjs.Text("Bet Amount: " + betAmount.toString(), "Arial", "#FFFFFF");
     betAmountText.x = 30;
     betAmountText.y = 430;
     game.addChild(betAmountText);
-    winningText = new createjs.Text("Winnings: " + winnings.toString(), "Arial", "#000000");
+    winningText = new createjs.Text("Winnings: " + winnings.toString(), "Arial", "#FFFFFF");
     winningText.x = 30;
     winningText.y = 450;
     game.addChild(winningText);
@@ -288,7 +288,7 @@ function createUI() {
     game.addChild(BetTen);
     BetMax = new createjs.Bitmap("assets/images/BetMaxButton.png");
     BetMax.x = 250;
-    BetMax.y = 420;
+    BetMax.y = 400;
     game.addChild(BetMax);
     BetMax.addEventListener("click", MaxOut);
     BetOne.addEventListener("click", BetOnce);

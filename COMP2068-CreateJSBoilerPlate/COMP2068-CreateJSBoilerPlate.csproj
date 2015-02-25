@@ -81,6 +81,7 @@
     <Content Include="assets\images\Slot_Orange.png" />
     <Content Include="assets\images\Slot_Seven.png" />
     <Content Include="assets\images\SpinButton.png" />
+    <Content Include="assets\images\Window.png" />
     <Content Include="css\game.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />
