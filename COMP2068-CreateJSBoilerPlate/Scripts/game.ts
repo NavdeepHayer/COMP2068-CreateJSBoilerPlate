@@ -78,7 +78,6 @@ function MaxOut() {
         betAmount += 50;
         CreditText.text = "Credits: " + Credits.toString();
         betAmountText.text = "Bet Amount: " + betAmount.toString();
-        winningText = "Winnings: " + winnings.toString();
     }
 
 }
@@ -91,6 +90,12 @@ function ResetButton() {
     spins = 0;
     CreditText.text = "Credits: " + Credits.toString();
     betAmountText.text = "Bet Amount: " + betAmount.toString();
+    winningText = "Winnings: " + winnings.toString();
+    game.removeChild(reelOne);
+    game.removeChild(reelTwo);
+    game.removeChild(reelThree);
+
+   
 
 }
 function checkSpin(spotOne, spotTwo, SpotThree) {
